@@ -31,10 +31,9 @@ function showAdmin() {
     }
 }
 
-// --- 4. Image Slider Logic ---
 document.addEventListener("DOMContentLoaded", () => {
+    // --- 4. Menu Items Auto Image Slider Logic ---
     let sliders = document.querySelectorAll('.slider-container');
-
     sliders.forEach(slider => {
         let images = slider.querySelectorAll('.slider-images img');
         let prevBtn = slider.querySelector('.prev-btn');
@@ -62,29 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
             autoPlayTimer = setInterval(nextImage, 3000); 
         }
 
-        nextBtn.addEventListener('click', () => {
-            nextImage();
-            startTimer(); 
-        });
-
-        prevBtn.addEventListener('click', () => {
-            prevImage();
-            startTimer();
-        });
-
-        if(images.length > 0) {
-            startTimer();
+        if(nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => { nextImage(); startTimer(); });
+            prevBtn.addEventListener('click', () => { prevImage(); startTimer(); });
         }
+
+        if(images.length > 0) startTimer();
     });
 
-    // --- 5. Star Rating Logic ---
+    // --- 5. Star Rating Form Logic ---
     let stars = document.querySelectorAll('#star-rating span');
     let ratingValue = document.getElementById('rating-value');
 
     stars.forEach(star => {
         star.addEventListener('click', function() {
             let value = this.getAttribute('data-value');
-            ratingValue.value = value; 
+            if(ratingValue) ratingValue.value = value; 
 
             stars.forEach(s => s.style.color = '#ccc');
             for (let i = 0; i < value; i++) {
@@ -92,8 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-});
-    // --- 6. NAYA: Header (Dukaan) Auto Slider Logic ---
+
+    // --- 6. Shop Header Auto Slider Logic ---
     let headerImages = document.querySelectorAll('.header-images img');
     let currentHeaderIndex = 0;
 
@@ -102,6 +94,23 @@ document.addEventListener("DOMContentLoaded", () => {
             headerImages[currentHeaderIndex].classList.remove('active');
             currentHeaderIndex = (currentHeaderIndex + 1) % headerImages.length;
             headerImages[currentHeaderIndex].classList.add('active');
-        }, 4000); // Har 4 second mein photo badlegi
-                }
-        
+        }, 4000); 
+    }
+});
+
+// --- 7. Full Screen Modal (Tap to View Photo) Logic ---
+function openModal() {
+    let modal = document.getElementById("imageModal");
+    let modalImg = document.getElementById("modalImg");
+    let activeImage = document.querySelector('.header-images img.active');
+    
+    if(activeImage && modal && modalImg) {
+        modal.style.display = "block";
+        modalImg.src = activeImage.src;
+    }
+}
+
+function closeModal() {
+    let modal = document.getElementById("imageModal");
+    if(modal) modal.style.display = "none";
+}
