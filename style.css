@@ -24,10 +24,69 @@ body {
     padding-bottom: 80px; 
 }
 
-/* --- Header, Tagline & Nav --- */
-header { background: var(--primary); color: var(--white); padding: 2rem 1rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);}
-header h1 { margin: 0; font-size: 2.8rem; text-transform: uppercase; letter-spacing: 2px;}
-header p { font-size: 1.1rem; font-weight: bold; margin-top: 5px; color: #ffcccc;}
+/* --- NAYA Header Slider CSS --- */
+.header-slider-container {
+    position: relative;
+    width: 100%;
+    height: 350px; /* Badi photo ke liye */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.header-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ye photo ko piche rakhega */
+}
+
+.header-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Photo aaram se badlegi */
+}
+
+.header-images img.active {
+    opacity: 1;
+}
+
+/* Naam ka box jo photo ke upar aayega */
+.header-overlay {
+    position: relative;
+    z-index: 2; /* Ye naam ko photo ke upar layega */
+    background: rgba(0, 0, 0, 0.6); /* Halka kala background taaki naam clear dikhe */
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--white);
+    border: 2px solid var(--accent);
+}
+
+.header-overlay h1 {
+    margin: 0;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
+
+.header-overlay p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: var(--accent);
+}
+
 
 .tagline { background: var(--secondary); color: var(--accent); text-align: center; padding: 12px; font-weight: bold; font-style: italic; font-size: 1.2rem; border-bottom: 3px solid var(--primary);}
 
