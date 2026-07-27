@@ -24,16 +24,17 @@ body {
     padding-bottom: 80px; 
 }
 
-/* --- NAYA Header Slider CSS --- */
+/* --- Shop Header Slider & Overlay --- */
 .header-slider-container {
     position: relative;
     width: 100%;
-    height: 350px; /* Badi photo ke liye */
+    height: 350px; 
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
 }
 
 .header-images {
@@ -42,7 +43,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Ye photo ko piche rakhega */
+    z-index: 1;
 }
 
 .header-images img {
@@ -53,18 +54,17 @@ body {
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 1s ease-in-out; /* Photo aaram se badlegi */
+    transition: opacity 1s ease-in-out;
 }
 
 .header-images img.active {
     opacity: 1;
 }
 
-/* Naam ka box jo photo ke upar aayega */
 .header-overlay {
     position: relative;
-    z-index: 2; /* Ye naam ko photo ke upar layega */
-    background: rgba(0, 0, 0, 0.6); /* Halka kala background taaki naam clear dikhe */
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px 40px;
     border-radius: 10px;
     text-align: center;
@@ -87,14 +87,32 @@ body {
     color: var(--accent);
 }
 
+.tap-hint {
+    display: inline-block;
+    font-size: 1rem;
+    color: #ffcccc;
+    margin-top: 15px;
+    background: rgba(0,0,0,0.7);
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--accent);
+    animation: pulse 2s infinite;
+}
 
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* --- Tagline & Nav --- */
 .tagline { background: var(--secondary); color: var(--accent); text-align: center; padding: 12px; font-weight: bold; font-style: italic; font-size: 1.2rem; border-bottom: 3px solid var(--primary);}
 
 nav { background: var(--secondary); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; flex-wrap: wrap;}
 nav a { color: var(--white); padding: 15px 20px; text-decoration: none; font-weight: bold; transition: background-color 0.3s;}
 nav a:hover { background: var(--primary); }
 
-/* --- Main Layout & Cards --- */
+/* --- Main Layout & Item Cards --- */
 .container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
 .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 
@@ -112,7 +130,7 @@ nav a:hover { background: var(--primary); }
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* --- Image Slider CSS --- */
+/* --- Menu Image Slider CSS --- */
 .slider-container {
     position: relative;
     width: 100%;
@@ -153,7 +171,7 @@ nav a:hover { background: var(--primary); }
 .prev-btn { left: 5px; }
 .next-btn { right: 5px; }
 
-/* --- Text & Buttons --- */
+/* --- Item Details & Buttons --- */
 .details { padding: 20px; display: flex; flex-direction: column; flex-grow: 1;}
 .details h3 { margin-top: 0; display: flex; justify-content: space-between; align-items: center; color: var(--primary); font-size: 1.4rem;}
 .price { font-size: 1.3rem; font-weight: bold; color: var(--secondary); }
@@ -170,14 +188,8 @@ nav a:hover { background: var(--primary); }
 .admin-panel button { background: var(--accent); color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s;}
 .admin-panel button:hover { background: #e68a00;}
 
-/* --- Support Form & Sections --- */
-.content-box {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    border-top: 5px solid var(--accent);
-}
+/* --- Support & Feedback Form CSS --- */
+.content-box { background: rgba(255, 255, 255, 0.95); padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border-top: 5px solid var(--accent);}
 .feedback-form { display: flex; flex-direction: column; gap: 15px; }
 .form-group { display: flex; flex-direction: column; gap: 8px; }
 .form-group label { font-weight: bold; color: var(--secondary); font-size: 1.1rem; }
@@ -185,15 +197,7 @@ nav a:hover { background: var(--primary); }
 .feedback-form input[type="text"],
 .feedback-form input[type="tel"],
 .feedback-form select,
-.feedback-form textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-family: inherit;
-    width: 100%;
-    box-sizing: border-box;
-}
+.feedback-form textarea { padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; font-family: inherit; width: 100%; box-sizing: border-box; }
 
 .rating-group { text-align: center; background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px dashed #ccc; }
 .stars { font-size: 2.5rem; cursor: pointer; color: #ccc; }
@@ -205,3 +209,44 @@ nav a:hover { background: var(--primary); }
 
 .submit-form-btn { background: var(--primary); color: white; border: none; padding: 15px; font-size: 1.2rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.3s; }
 .submit-form-btn:hover { background: #b71c1c; }
+
+/* --- NAYA: Dukaan Ki Badi Photo (Modal) CSS --- */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 3000; 
+    padding-top: 60px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 8px;
+    border: 3px solid var(--primary);
+    animation: zoomIn 0.4s;
+}
+
+@keyframes zoomIn {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover { color: var(--primary); }
