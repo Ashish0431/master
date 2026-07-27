@@ -6,6 +6,62 @@
     --whatsapp: #25D366; /* WhatsApp ka Green color */
     --white: #ffffff; 
 }
+/* Image Slider Styles */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.slider-images {
+    width: 100%;
+    height: 100%;
+}
+
+.slider-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* By default saari photos hide rahengi */
+    animation: fadeEffect 0.5s;
+}
+
+.slider-images img.active {
+    display: block; /* Sirf active photo dikhegi */
+}
+
+/* 3D Fade Animation */
+@keyframes fadeEffect {
+    from {opacity: 0.5;}
+    to {opacity: 1;}
+}
+
+/* Slider Buttons (Left & Right) */
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.slide-btn:hover {
+    background-color: var(--primary);
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
 
 /* Background ka Slow RGB Blinking Animation */
 @keyframes rgbSlowBlink {
