@@ -1,4 +1,4 @@
-/* --- Colors aur Basic Setup --- */
+/* --- Colors & Variables --- */
 :root { 
     --primary: #d32f2f; 
     --secondary: #222222; 
@@ -7,6 +7,7 @@
     --white: #ffffff; 
 }
 
+/* --- RGB Background Animation --- */
 @keyframes rgbSlowBlink {
     0%   { background-color: #ffcccc; } 
     33%  { background-color: #ccffcc; } 
@@ -22,100 +23,8 @@ body {
     animation: rgbSlowBlink 15s infinite alternate; 
     padding-bottom: 80px; 
 }
-/* --- Support & Feedback Form CSS --- */
-.content-box {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    border-top: 5px solid var(--accent);
-}
 
-.feedback-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.form-group label {
-    font-weight: bold;
-    color: var(--secondary);
-    font-size: 1.1rem;
-}
-
-.feedback-form input[type="text"],
-.feedback-form input[type="tel"],
-.feedback-form select,
-.feedback-form textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-family: inherit;
-    width: 100%;
-    box-sizing: border-box; /* Ensures width doesn't overflow */
-}
-
-/* Star Rating CSS */
-.rating-group {
-    text-align: center;
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px dashed #ccc;
-}
-.stars {
-    font-size: 2.5rem;
-    cursor: pointer;
-    color: #ccc; /* Default grey stars */
-}
-.stars span {
-    transition: color 0.2s;
-}
-.stars span.active, .stars span:hover, .stars span:hover ~ span {
-    color: #FFD700; /* Gold color for active stars */
-}
-
-/* Radio Buttons Layout */
-.radio-options {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 6px;
-}
-.radio-options label {
-    font-weight: normal;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Submit Button */
-.submit-form-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 15px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.submit-form-btn:hover {
-    background: #b71c1c;
-}
-
-/* --- Header & Navigation --- */
+/* --- Header, Tagline & Nav --- */
 header { background: var(--primary); color: var(--white); padding: 2rem 1rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);}
 header h1 { margin: 0; font-size: 2.8rem; text-transform: uppercase; letter-spacing: 2px;}
 header p { font-size: 1.1rem; font-weight: bold; margin-top: 5px; color: #ffcccc;}
@@ -126,7 +35,7 @@ nav { background: var(--secondary); display: flex; justify-content: center; posi
 nav a { color: var(--white); padding: 15px 20px; text-decoration: none; font-weight: bold; transition: background-color 0.3s;}
 nav a:hover { background: var(--primary); }
 
-/* --- Menu Grid & Cards --- */
+/* --- Main Layout & Cards --- */
 .container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
 .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 
@@ -144,11 +53,11 @@ nav a:hover { background: var(--primary); }
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* --- NAYA: Image Slider CSS --- */
+/* --- Image Slider CSS --- */
 .slider-container {
     position: relative;
     width: 100%;
-    height: 220px; /* Photo ki height */
+    height: 220px; 
     overflow: hidden;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -158,12 +67,11 @@ nav a:hover { background: var(--primary); }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none; /* Sari photos chhipa do */
+    display: none; 
     animation: fadeEffect 0.5s;
 }
-.slider-images img.active {
-    display: block; /* Jo active hai bas wahi dikhegi */
-}
+.slider-images img.active { display: block; }
+
 @keyframes fadeEffect {
     from {opacity: 0.4;}
     to {opacity: 1;}
@@ -186,7 +94,7 @@ nav a:hover { background: var(--primary); }
 .prev-btn { left: 5px; }
 .next-btn { right: 5px; }
 
-/* --- Details & Buttons --- */
+/* --- Text & Buttons --- */
 .details { padding: 20px; display: flex; flex-direction: column; flex-grow: 1;}
 .details h3 { margin-top: 0; display: flex; justify-content: space-between; align-items: center; color: var(--primary); font-size: 1.4rem;}
 .price { font-size: 1.3rem; font-weight: bold; color: var(--secondary); }
@@ -202,3 +110,39 @@ nav a:hover { background: var(--primary); }
 .admin-panel h2 { margin-top: 0; color: var(--primary); text-align: center; border-bottom: 2px solid #ddd; padding-bottom: 10px;}
 .admin-panel button { background: var(--accent); color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s;}
 .admin-panel button:hover { background: #e68a00;}
+
+/* --- Support Form & Sections --- */
+.content-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    border-top: 5px solid var(--accent);
+}
+.feedback-form { display: flex; flex-direction: column; gap: 15px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label { font-weight: bold; color: var(--secondary); font-size: 1.1rem; }
+
+.feedback-form input[type="text"],
+.feedback-form input[type="tel"],
+.feedback-form select,
+.feedback-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.rating-group { text-align: center; background: #f9f9f9; padding: 15px; border-radius: 8px; border: 1px dashed #ccc; }
+.stars { font-size: 2.5rem; cursor: pointer; color: #ccc; }
+.stars span { transition: color 0.2s; }
+.stars span.active, .stars span:hover, .stars span:hover ~ span { color: #FFD700; }
+
+.radio-options { display: flex; gap: 20px; flex-wrap: wrap; background: #f9f9f9; padding: 10px; border-radius: 6px; }
+.radio-options label { font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+
+.submit-form-btn { background: var(--primary); color: white; border: none; padding: 15px; font-size: 1.2rem; font-weight: bold; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+.submit-form-btn:hover { background: #b71c1c; }
