@@ -93,3 +93,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+    // --- 6. NAYA: Header (Dukaan) Auto Slider Logic ---
+    let headerImages = document.querySelectorAll('.header-images img');
+    let currentHeaderIndex = 0;
+
+    if (headerImages.length > 0) {
+        setInterval(() => {
+            headerImages[currentHeaderIndex].classList.remove('active');
+            currentHeaderIndex = (currentHeaderIndex + 1) % headerImages.length;
+            headerImages[currentHeaderIndex].classList.add('active');
+        }, 4000); // Har 4 second mein photo badlegi
+                }
+        
