@@ -1,3 +1,27 @@
+/* --- Colors aur Basic Setup --- */
+:root { 
+    --primary: #d32f2f; 
+    --secondary: #222222; 
+    --accent: #ff9800; 
+    --whatsapp: #25D366; 
+    --white: #ffffff; 
+}
+
+@keyframes rgbSlowBlink {
+    0%   { background-color: #ffcccc; } 
+    33%  { background-color: #ccffcc; } 
+    66%  { background-color: #ccccff; } 
+    100% { background-color: #ffcccc; } 
+}
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 0;
+    color: #333;
+    animation: rgbSlowBlink 15s infinite alternate; 
+    padding-bottom: 80px; 
+}
 /* --- Support & Feedback Form CSS --- */
 .content-box {
     background: rgba(255, 255, 255, 0.95);
@@ -90,3 +114,91 @@
 .submit-form-btn:hover {
     background: #b71c1c;
 }
+
+/* --- Header & Navigation --- */
+header { background: var(--primary); color: var(--white); padding: 2rem 1rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2);}
+header h1 { margin: 0; font-size: 2.8rem; text-transform: uppercase; letter-spacing: 2px;}
+header p { font-size: 1.1rem; font-weight: bold; margin-top: 5px; color: #ffcccc;}
+
+.tagline { background: var(--secondary); color: var(--accent); text-align: center; padding: 12px; font-weight: bold; font-style: italic; font-size: 1.2rem; border-bottom: 3px solid var(--primary);}
+
+nav { background: var(--secondary); display: flex; justify-content: center; position: sticky; top: 0; z-index: 1000; flex-wrap: wrap;}
+nav a { color: var(--white); padding: 15px 20px; text-decoration: none; font-weight: bold; transition: background-color 0.3s;}
+nav a:hover { background: var(--primary); }
+
+/* --- Menu Grid & Cards --- */
+.container { max-width: 1000px; margin: 30px auto; padding: 0 15px; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+
+.menu-item { 
+    background: rgba(255, 255, 255, 0.95); 
+    border-radius: 12px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border-top: 5px solid var(--primary); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    display: flex;
+    flex-direction: column;
+}
+.menu-item:hover { 
+    transform: translateY(-8px); 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* --- NAYA: Image Slider CSS --- */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 220px; /* Photo ki height */
+    overflow: hidden;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.slider-images { width: 100%; height: 100%; }
+.slider-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Sari photos chhipa do */
+    animation: fadeEffect 0.5s;
+}
+.slider-images img.active {
+    display: block; /* Jo active hai bas wahi dikhegi */
+}
+@keyframes fadeEffect {
+    from {opacity: 0.4;}
+    to {opacity: 1;}
+}
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: 0.3s;
+    z-index: 10;
+}
+.slide-btn:hover { background-color: var(--primary); }
+.prev-btn { left: 5px; }
+.next-btn { right: 5px; }
+
+/* --- Details & Buttons --- */
+.details { padding: 20px; display: flex; flex-direction: column; flex-grow: 1;}
+.details h3 { margin-top: 0; display: flex; justify-content: space-between; align-items: center; color: var(--primary); font-size: 1.4rem;}
+.price { font-size: 1.3rem; font-weight: bold; color: var(--secondary); }
+
+.btn-order { display: block; background: var(--whatsapp); color: var(--white); text-align: center; padding: 12px; text-decoration: none; border-radius: 6px; margin-top: auto; font-weight: bold; transition: background 0.3s;}
+.btn-order:hover { background: #128C7E; }
+
+.call-btn { position: fixed; bottom: 20px; right: 20px; background: var(--primary); color: var(--white); padding: 15px 25px; border-radius: 50px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 2000; text-decoration: none; font-size: 1.1rem; transition: transform 0.3s;}
+.call-btn:hover { background: #b71c1c; transform: scale(1.05); }
+
+/* --- Manager Panel --- */
+.admin-panel { background: rgba(255, 255, 255, 0.95); padding: 25px; margin-top: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: none; border: 2px solid var(--primary);}
+.admin-panel h2 { margin-top: 0; color: var(--primary); text-align: center; border-bottom: 2px solid #ddd; padding-bottom: 10px;}
+.admin-panel button { background: var(--accent); color: white; border: none; padding: 10px 15px; margin: 5px; border-radius: 5px; cursor: pointer; font-weight: bold; transition: background 0.3s;}
+.admin-panel button:hover { background: #e68a00;}
