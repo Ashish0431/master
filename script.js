@@ -1,4 +1,4 @@
-// --- 1. Load Saved Prices (1 to 10 items) ---
+// --- 1. Load Saved Prices ---
 window.onload = () => {
     for (let i = 1; i <= 10; i++) {
         let currentId = 'p' + i; 
@@ -9,28 +9,8 @@ window.onload = () => {
         }
     }
 };
-// --- 5. NAYA: Star Rating Logic ---
-document.addEventListener("DOMContentLoaded", () => {
-    let stars = document.querySelectorAll('#star-rating span');
-    let ratingValue = document.getElementById('rating-value');
 
-    stars.forEach(star => {
-        star.addEventListener('click', function() {
-            let value = this.getAttribute('data-value');
-            ratingValue.value = value; // Hidden input mein value save karega
-
-            // Pura star system reset karega
-            stars.forEach(s => s.style.color = '#ccc');
-
-            // Jaha tak click kiya hai, waha tak Gold karega
-            for (let i = 0; i < value; i++) {
-                stars[i].style.color = '#FFD700';
-            }
-        });
-    });
-});
-
-// --- 2. Price Update Function ---
+// --- 2. Update Price Function ---
 function updatePrice(id, name) {
     let newPrice = prompt("Enter new price for " + name + ":");
     if(newPrice && newPrice.trim() !== "") {
@@ -40,7 +20,7 @@ function updatePrice(id, name) {
     }
 }
 
-// --- 3. Manager Panel (Password Lock: 1999) ---
+// --- 3. Manager Panel (Password: 1999) ---
 function showAdmin() {
     let pass = prompt("Manager Password enter karein (Hint: Shop ka establishing year):");
     if (pass === "1999") {
@@ -51,7 +31,7 @@ function showAdmin() {
     }
 }
 
-// --- 4. NAYA: Image Slider Logic (Auto & Manual) ---
+// --- 4. Image Slider Logic ---
 document.addEventListener("DOMContentLoaded", () => {
     let sliders = document.querySelectorAll('.slider-container');
 
@@ -62,34 +42,29 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentIndex = 0;
         let autoPlayTimer;
 
-        // Image dikhane ka function
         function showImage(index) {
             images.forEach(img => img.classList.remove('active'));
             images[index].classList.add('active');
         }
 
-        // Agli Image
         function nextImage() {
             currentIndex = (currentIndex + 1) % images.length;
             showImage(currentIndex);
         }
 
-        // Pichli Image
         function prevImage() {
             currentIndex = (currentIndex - 1 + images.length) % images.length;
             showImage(currentIndex);
         }
 
-        // Har 3 second baad photo apne aap change hogi
         function startTimer() {
             clearInterval(autoPlayTimer);
             autoPlayTimer = setInterval(nextImage, 3000); 
         }
 
-        // Customer Button Dabayega tab ka logic
         nextBtn.addEventListener('click', () => {
             nextImage();
-            startTimer(); // Button dabane par timer reset hoga
+            startTimer(); 
         });
 
         prevBtn.addEventListener('click', () => {
@@ -97,9 +72,24 @@ document.addEventListener("DOMContentLoaded", () => {
             startTimer();
         });
 
-        // Timer shuru karo
         if(images.length > 0) {
             startTimer();
         }
+    });
+
+    // --- 5. Star Rating Logic ---
+    let stars = document.querySelectorAll('#star-rating span');
+    let ratingValue = document.getElementById('rating-value');
+
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            let value = this.getAttribute('data-value');
+            ratingValue.value = value; 
+
+            stars.forEach(s => s.style.color = '#ccc');
+            for (let i = 0; i < value; i++) {
+                stars[i].style.color = '#FFD700';
+            }
+        });
     });
 });
