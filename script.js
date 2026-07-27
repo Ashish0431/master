@@ -9,6 +9,26 @@ window.onload = () => {
         }
     }
 };
+// --- 5. NAYA: Star Rating Logic ---
+document.addEventListener("DOMContentLoaded", () => {
+    let stars = document.querySelectorAll('#star-rating span');
+    let ratingValue = document.getElementById('rating-value');
+
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            let value = this.getAttribute('data-value');
+            ratingValue.value = value; // Hidden input mein value save karega
+
+            // Pura star system reset karega
+            stars.forEach(s => s.style.color = '#ccc');
+
+            // Jaha tak click kiya hai, waha tak Gold karega
+            for (let i = 0; i < value; i++) {
+                stars[i].style.color = '#FFD700';
+            }
+        });
+    });
+});
 
 // --- 2. Price Update Function ---
 function updatePrice(id, name) {
