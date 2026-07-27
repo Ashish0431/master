@@ -22,8 +22,8 @@ function updatePrice(id, name) {
 
 // --- 3. Manager Panel (Password: 1999) ---
 function showAdmin() {
-    let pass = prompt("Manager Password enter karein (Hint: Shop ka establishing year):");
-    if (pass === "1999") {
+    let pass = prompt("Manager Password enter karein (..):");
+    if (pass === "0999") {
         let panel = document.getElementById('admin');
         panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
     } else if (pass !== null) {
