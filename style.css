@@ -1,0 +1,202 @@
+/* Colors set kiye gaye hain taaki aasaani ho */
+:root { 
+    --primary: #d32f2f; /* Shop ka main Red color */
+    --secondary: #222222; /* Black/Dark color */
+    --accent: #ff9800; /* Tagline ka Orange color */
+    --whatsapp: #25D366; /* WhatsApp ka Green color */
+    --white: #ffffff; 
+}
+
+/* Background ka Slow RGB Blinking Animation */
+@keyframes rgbSlowBlink {
+    0%   { background-color: #ffcccc; } /* Light Red */
+    33%  { background-color: #ccffcc; } /* Light Green */
+    66%  { background-color: #ccccff; } /* Light Blue */
+    100% { background-color: #ffcccc; } /* Wapas Light Red */
+}
+
+/* Pura Page (Body) */
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 0;
+    color: #333;
+    animation: rgbSlowBlink 15s infinite alternate; /* 15 second mein color badlega */
+    padding-bottom: 80px; /* Neeche call button ke liye jagah */
+}
+
+/* Header (Dukaan ka naam) */
+header { 
+    background: var(--primary); 
+    color: var(--white); 
+    padding: 2rem 1rem; 
+    text-align: center; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+header h1 { 
+    margin: 0; 
+    font-size: 2.8rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+}
+header p {
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    margin-top: 5px; 
+    color: #ffcccc;
+}
+
+/* Tagline */
+.tagline { 
+    background: var(--secondary); 
+    color: var(--accent); 
+    text-align: center; 
+    padding: 12px; 
+    font-weight: bold; 
+    font-style: italic; 
+    font-size: 1.2rem; 
+    border-bottom: 3px solid var(--primary);
+}
+
+/* Menu Bar (Navigation) */
+nav { 
+    background: var(--secondary); 
+    display: flex; 
+    justify-content: center; 
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; /* Screen par hamesha upar rahega */
+    flex-wrap: wrap;
+}
+nav a { 
+    color: var(--white); 
+    padding: 15px 20px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: background-color 0.3s;
+}
+nav a:hover { 
+    background: var(--primary); 
+}
+
+/* Main Container aur Grid (Items dikhane ka layout) */
+.container { 
+    max-width: 1000px; 
+    margin: 30px auto; 
+    padding: 0 15px; 
+}
+.menu-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+}
+
+/* Har ek Chicken Item ka Card */
+.menu-item { 
+    background: rgba(255, 255, 255, 0.95); /* Halka transparent safed */
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15); 
+    border-top: 5px solid var(--primary); 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    display: flex;
+    flex-direction: column;
+}
+.menu-item:hover { 
+    transform: translateY(-8px); /* Mouse le jane par card upar uthega */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+.menu-item img { 
+    width: 100%; 
+    height: 220px; 
+    object-fit: cover; 
+}
+.details { 
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.details h3 {
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary);
+    font-size: 1.4rem;
+}
+.price { 
+    font-size: 1.3rem; 
+    font-weight: bold; 
+    color: var(--secondary); 
+}
+
+/* WhatsApp Order Button */
+.btn-order { 
+    display: block; 
+    background: var(--whatsapp); 
+    color: var(--white); 
+    text-align: center; 
+    padding: 12px; 
+    text-decoration: none; 
+    border-radius: 6px; 
+    margin-top: auto; 
+    font-weight: bold; 
+    transition: background 0.3s;
+}
+.btn-order:hover { 
+    background: #128C7E; 
+}
+
+/* Sticky Call Button (Jo hamesha screen par dikhega) */
+.call-btn { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background: var(--primary); 
+    color: var(--white); 
+    padding: 15px 25px; 
+    border-radius: 50px; 
+    font-weight: bold; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+    z-index: 2000; 
+    text-decoration: none; 
+    font-size: 1.1rem;
+    transition: transform 0.3s;
+}
+.call-btn:hover { 
+    background: #b71c1c; 
+    transform: scale(1.05); /* Mouse par thoda bada hoga */
+}
+
+/* Manager Panel (Password wala hissa) */
+.admin-panel { 
+    background: rgba(255, 255, 255, 0.95); 
+    padding: 25px; 
+    margin-top: 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: none; 
+    border: 2px solid var(--primary);
+}
+.admin-panel h2 {
+    margin-top: 0;
+    color: var(--primary);
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+.admin-panel button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+.admin-panel button:hover {
+    background: #e68a00;
+}
