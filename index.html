@@ -219,8 +219,27 @@
         </div>
 
         <!-- SUPPORT, REVIEW & RATING SECTION -->
+                <!-- SUPPORT, REVIEW & RATING SECTION -->
         <div class="content-box" id="support" style="margin-top: 50px;">
             <h2 style="color: #d32f2f; text-align: center;">Customer Support & Feedback</h2>
+            
+            <!-- NAYA: Live Rating Showcase -->
+            <div class="rating-stats-container">
+                <div class="stat-box">
+                    <span class="stat-number">4.8</span>
+                    <span class="stat-stars">★★★★★</span>
+                    <p>Average Rating</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">850+</span>
+                    <p>Total Reviews</p>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">95%</span>
+                    <p>Happy Customers 😊</p>
+                </div>
+            </div>
+
             <p style="text-align: center; font-weight: bold; margin-bottom: 20px;">Aapka feedback hamare liye zaroori hai. Rating dein, shikayat karein, ya sujhav dein.</p>
             
             <form action="https://formsubmit.co/masterchickenshop1999@gmail.com" method="POST" class="feedback-form">
@@ -257,11 +276,12 @@
                     </div>
                 </div>
 
+                <!-- NAYA: Autocomplete aur Validation (Fake data rokne ke liye) -->
                 <div class="form-group">
-                    <input type="text" name="Customer_Name" placeholder="Aapka Naam" required>
+                    <input type="text" name="Customer_Name" placeholder="Aapka Asli Naam" autocomplete="name" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" name="Mobile_Number" placeholder="Aapka Mobile Number" required>
+                    <input type="tel" name="Mobile_Number" placeholder="10-Digit Mobile Number" autocomplete="tel" pattern="[6-9][0-9]{9}" maxlength="10" title="Kripya sahi 10-digit Indian mobile number dalein" required>
                 </div>
                 <div class="form-group">
                     <textarea name="Message" rows="5" placeholder="Apna message, shikayat ya sujhav yahan vistar se likhein..." required></textarea>
@@ -272,6 +292,7 @@
                 <button type="submit" class="submit-form-btn">Submit Feedback</button>
             </form>
         </div>
+
 
         <!-- LOCATION & CONTACT SECTION -->
         <div class="content-box" id="contact" style="margin-top: 30px;">
